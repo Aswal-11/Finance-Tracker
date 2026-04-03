@@ -16,6 +16,8 @@ class FinancialRecordController extends Controller
     {
         $this->authorize('viewAny', FinancialRecord::class);
 
+        $categories = Category::select('id', 'name')->get();
+
         $records = FinancialRecord::where('user_id', Auth::id())
             ->with('category:id,name')
             ->type($request->type)
@@ -25,7 +27,7 @@ class FinancialRecordController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('financial.index', compact('records'));
+        return view('financial.index', compact('records', 'categories'));
     }
 
     /**
@@ -48,7 +50,7 @@ class FinancialRecordController extends Controller
         $this->authorize('create', FinancialRecord::class);
 
         $validated = $request->validate([
-            'amount' => 'required|numeric',
+            'amount' => 'required|numeric|max:999999999.99',
             'type' => 'required|in:income,expense',
             'category_id' => 'required|exists:categories,id',
             'date' => 'required|date',

@@ -29,12 +29,18 @@
 
                 <div>
                     <label class="text-sm font-semibold text-gray-700">Role Name</label>
-                    <input type="text" name="name" value="{{ old('name', $role->name) }}" class="mt-2 w-full rounded-2xl border border-gray-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 outline-none">
+                    <input type="text" name="name" value="{{ old('name', $role->name) }}" class="mt-2 w-full rounded-2xl border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-200' }} bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 outline-none">
+                    @error('name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div>
                     <label class="text-sm font-semibold text-gray-700">Description</label>
-                    <input type="text" name="description" value="{{ old('description', $role->description) }}" class="mt-2 w-full rounded-2xl border border-gray-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 outline-none">
+                    <input type="text" name="description" value="{{ old('description', $role->description) }}" class="mt-2 w-full rounded-2xl border {{ $errors->has('description') ? 'border-red-500' : 'border-gray-200' }} bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 outline-none">
+                    @error('description')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
             </div>

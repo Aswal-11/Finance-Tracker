@@ -44,7 +44,6 @@ class SubuserController extends Controller
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
                 'role_id' => $validated['role_id'] ?? null,
-                'status' => $request->has('status') ? 1 : 0, // 🔥 status
             ]);
         });
 
@@ -84,7 +83,6 @@ class SubuserController extends Controller
                 'name' => $validated['name'],
                 'email' => $validated['email'],
                 'role_id' => $validated['role_id'] ?? null,
-                'status' => $request->has('status') ? 1 : 0, // 🔥 status
             ];
 
             // Password update only if provided
@@ -110,17 +108,6 @@ class SubuserController extends Controller
             ->with('success', 'Subuser deleted successfully');
     }
 
-    /**
-     * 🔥 Toggle Status (IMPORTANT FEATURE)
-     */
-    public function toggle(Subuser $subuser)
-    {
-        $subuser->update([
-            'status' => !$subuser->status
-        ]);
-
-        return back()->with('success', 'Status updated');
-    }
 
     /**
      * 🔥 Validation (DRY)

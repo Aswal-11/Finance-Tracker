@@ -4,5 +4,6 @@ return [
         'posts',
         'subusers',
         'roles',
+        'financial_records'
     ],
 ];

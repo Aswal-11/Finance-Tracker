@@ -31,14 +31,15 @@
             </div>
 
             <div>
-                <label for="category" class="block text-sm font-medium text-slate-700 mb-2">Category</label>
-                <input
-                    type="text"
-                    name="category"
-                    value="{{ request('category') }}"
-                    placeholder="Search category..."
-                    class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                >
+                <label for="category_id" class="block text-sm font-medium text-slate-700 mb-2">Category</label>
+                <select name="category_id" id="category_id" class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                    <option value="">All Categories</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div>

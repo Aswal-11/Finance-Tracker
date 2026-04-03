@@ -16,7 +16,7 @@
                         <a href="{{ route('dashboard') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Dashboard</a>
                         <a href="{{ route('role.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Roles</a>
                         <a href="{{ route('subusers.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Subusers</a>
-                        <a href="{{ route('posts.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Posts</a>
+                        {{-- <a href="{{ route('posts.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Posts</a> --}}
                         <a href="{{ route('records.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">Financial Records</a>
                     </div>
                 @endif
@@ -35,5 +35,21 @@
         @yield('content')
     </main>
     @yield('scripts')
+
+    <script>
+        // Auto-hide session/flash messages after 3 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const alerts = document.querySelectorAll('[data-alert]');
+            alerts.forEach(alert => {
+                setTimeout(function() {
+                    alert.style.transition = 'opacity 0.3s ease-out';
+                    alert.style.opacity = '0';
+                    setTimeout(function() {
+                        alert.style.display = 'none';
+                    }, 300);
+                }, 3000);
+            });
+        });
+    </script>
 </body>
 </html>

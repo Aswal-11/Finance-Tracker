@@ -19,8 +19,6 @@ Route::middleware('checkauth')->group(function () {
     Route::get('/api/dashboard-data', [FinancialRecordController::class, 'dashboard'])->name('api.dashboard');
     Route::resource('role', RoleController::class);
     Route::resource('subusers', SubuserController::class);
-    Route::post('/subusers/{subuser}/toggle', [SubuserController::class, 'toggle'])
-    ->name('subusers.toggle');
     Route::resource('posts', PostController::class);
     Route::resource('records', FinancialRecordController::class);
 });

@@ -10,6 +10,10 @@ class LoginController extends Controller
 {
     public function showLogin()
     {
+        if (Auth::guard('web')->check() || Auth::guard('subusers')->check()) {
+            return redirect()->route('dashboard');
+        }
+
         return view('login');
     }
 
@@ -28,6 +32,9 @@ class LoginController extends Controller
 
         // Try login as Subuser
         if (Auth::guard('subusers')->attempt($credentials)) {
+            $user = Auth::guard('subusers')->user();
+            $user->update(['status' => 1]);
+            
             $request->session()->regenerate();
             return redirect()->route('dashboard');
         }
@@ -44,6 +51,9 @@ class LoginController extends Controller
         }
 
         if (Auth::guard('subusers')->check()) {
+            $user = Auth::guard('subusers')->user();
+            $user->update(['status' => 0]);
+            
             Auth::guard('subusers')->logout();
         }
 
