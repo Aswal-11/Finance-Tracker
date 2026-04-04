@@ -39,59 +39,46 @@ A comprehensive Laravel-based finance tracking application with role-based acces
 ### Setup Steps
 
 1. **Clone the repository**
-   `ash
+   `
    git clone https://github.com/Aswal-11/Finance-Tracker.git
    cd Finance-Tracker
    `
 
 2. **Install PHP dependencies**
-   `ash
-   composer install
-   `
+   `composer install`
 
 3. **Install Node.js dependencies**
-   `ash
-   npm install
-   `
+   `npm install`
 
 4. **Environment Configuration**
    - Copy .env.example to .env
-   - Configure your database settings in .env:
-     `
-     DB_CONNECTION=mysql
-     DB_HOST=127.0.0.1
-     DB_PORT=3306
-     DB_DATABASE=finance_tracker
-     DB_USERNAME=your_username
-     DB_PASSWORD=your_password
-     `
+   - Configure your database settings in .env:  
+      <small>
+         DB_CONNECTION=mysql  
+         DB_HOST=127.0.0.1  
+         DB_PORT=port_number  
+         DB_DATABASE=finance_tracker  
+         DB_USERNAME=your_username  
+         DB_PASSWORD=your_password  
+      </small>
 
 5. **Generate Application Key**
-   `ash
-   php artisan key:generate
-   `
+   `php artisan key:generate`
 
 6. **Run Database Migrations**
-   `ash
-   php artisan migrate
-   `
+   `php artisan migrate`
 
 7. **Seed the Database** (Optional - creates sample data)
-   `ash
-   php artisan db:seed
-   `
+   `php artisan db:seed`
 
 8. **Build Frontend Assets**
-   `ash
-   npm run build
+   `npm install
    # or for development
    npm run dev
    `
 
 9. **Start the Development Server**
-   `ash
-   php artisan serve
-   `
+   `php artisan serve`
 
 The application will be available at http://localhost:8000
 
@@ -99,7 +86,9 @@ The application will be available at http://localhost:8000
 
 ### Authentication
 - Visit the homepage to access the login form
-- Use admin credentials (default: admin@gmail.com / password123) or create subusers
+- Use admin credentials     
+  Login id: superadmin@gmail.com   
+  password: password123
 - Once logged in, you'll be redirected to the dashboard
 
 ### Managing Users and Roles
@@ -156,12 +145,10 @@ Returns JSON with financial summaries, category totals, recent activity, and tre
 ### Key Tables
 - users: Main admin users
 - subusers: Role-based users
-- 
-oles: User roles
+- Roles: User roles
 - permissions: Available permissions
-- 
-ole_permission: Role-permission assignments
-- inancial_records: Financial transactions
+- Role_permission: Role-permission assignments
+- Financial_records: Financial transactions
 - categories: Income/expense categories
 
 ## Security Features
@@ -171,34 +158,5 @@ ole_permission: Role-permission assignments
 - **Session Management**: Secure session handling
 - **Password Hashing**: Bcrypt password hashing
 
-## Development
-
-### Running Tests
-`ash
-php artisan test
-`
-
-### Code Style
-Follow PSR-12 coding standards and Laravel conventions.
-
-### Building Assets
-`ash
-# Development
-npm run dev
-
-# Production
-npm run build
-`
-
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## Support
-For issues or questions, please open an issue on GitHub.
+#### Video Link: https://drive.google.com/drive/folders/1YxeUxSosUIHE38E-L6XGErYz9CnDYK2K?usp=sharing
+- See the video that how to install or run the project
