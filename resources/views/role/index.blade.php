@@ -1,4 +1,4 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="space-y-6">
@@ -10,9 +10,6 @@
         <a href="{{ route('role.create') }}" class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700">Create New Role</a>
     </div>
 
-    @if(session('success'))
-        <div data-alert class="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">{{ session('success') }}</div>
-    @endif
 
     <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
         <table class="min-w-full divide-y divide-slate-200">
